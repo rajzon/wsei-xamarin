@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+             mc:Ignorable="d"
+            >
+    <!--Colors-->
+    <Color x:Key="frameBackgroundColor">Yellow</Color>
+    <!--LabelColors-->
+    <Color x:Key="secondLabelTextColor">Black</Color>
+    <Color x:Key="thirdLabelTextColor">Black</Color>
+    <Color x:Key="fourthLabelTextColor">Black</Color>
+    <Color x:Key="fifthLabelTextColor">Black</Color>
+    <!--SpanColors-->
+    <Color x:Key="firstSpanTextColor">Black</Color>
+    <Color x:Key="thirdSpanTextColor">DarkSlateGray</Color>
+    <Color x:Key="fourthSpanTextColor">Black</Color>
+    <Color x:Key="fifthSpanTextColor">Black</Color>
+    <Color x:Key="sixthSpanTextColor">Black</Color>
+    <Color x:Key="seventhSpanTextColor">Black</Color>
+    <Color x:Key="eighthSpanTextColor">Black</Color>
+    <Color x:Key="ninthSpanTextColor">Black</Color>
+    <!--BoxViewColors-->
+    <Color x:Key="firstBoxViewBackgroundColor">LightGray</Color>
+    <Color x:Key="secondBoxViewBackgroundColor">LightGray</Color>
+    <Color x:Key="thirdBoxViewBackgroundColor">LightGray</Color>
+    <Color x:Key="fourthBoxViewBackgroundColor">LightGray</Color>
+    <!--SliderColors-->
+    <Color x:Key="sliderMinimumTrackColor">CornflowerBlue</Color>
+    <Color x:Key="sliderMaximumTrackColor">Gray</Color>
+    <Color x:Key="sliderThumbColor">CornflowerBlue</Color>
+    <Color x:Key="secondSliderMinimumTrackColor">CornflowerBlue</Color>
+    <Color x:Key="secondSliderMaximumTrackColor">Gray</Color>
+    <Color x:Key="secondSliderThumbColor">CornflowerBlue</Color>
+    <!--ImageButtonColors-->
+    <Color x:Key="ImageButtonBackgroundColor">Transparent</Color>
+
+    <!--Frame Styles-->
+    <Style x:Key="frameStyle" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{StaticResource frameBackgroundColor}"/>
+    </Style>
+
+    <!--Label Styles-->
+
+    <Style x:Key="secondLabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource secondLabelTextColor}"/>
+    </Style>
+
+    <Style x:Key="thirdLabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource thirdLabelTextColor}"/>
+    </Style>
+
+    <Style x:Key="fourthLabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource fourthLabelTextColor}"/>
+    </Style>
+
+    <Style x:Key="fifthLabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource fifthLabelTextColor}"/>
+    </Style>
+
+
+    <!--Span Styles-->
+    <Style x:Key="firstSpanStyle" TargetType="Span">
+        <Setter Property="TextColor" Value="{StaticResource fifthSpanTextColor}"/>
+    </Style>
+
+    <Style x:Key="thirdSpanStyle" TargetType="Span">
+        <Setter Property="TextColor" Value="{StaticResource thirdSpanTextColor}"/>
+    </Style>
+
+    <Style x:Key="fourthSpanStyle" TargetType="Span">
+        <Setter Property="TextColor" Value="{StaticResource fourthSpanTextColor}"/>
+    </Style>
+
+    <Style x:Key="fifthSpanStyle" TargetType="Span">
+        <Setter Property="TextColor" Value="{StaticResource fifthSpanTextColor}"/>
+    </Style>
+
+    <Style x:Key="sixthSpanStyle" TargetType="Span">
+        <Setter Property="TextColor" Value="{StaticResource sixthSpanTextColor}"/>
+    </Style>
+
+    <Style x:Key="seventhSpanStyle" TargetType="Span">
+        <Setter Property="TextColor" Value="{StaticResource seventhSpanTextColor}"/>
+    </Style>
+
+    <Style x:Key="eighthSpanStyle" TargetType="Span">
+        <Setter Property="TextColor" Value="{StaticResource eighthSpanTextColor}"/>
+    </Style>
+
+    <Style x:Key="ninthSpanStyle" TargetType="Span">
+        <Setter Property="TextColor" Value="{StaticResource ninthSpanTextColor}"/>
+    </Style>
+
+    <!--BoxView Styles-->
+    <Style x:Key="firstBoxViewStyle" TargetType="BoxView">
+        <Setter Property="BackgroundColor" Value="{StaticResource firstBoxViewBackgroundColor}"/>
+    </Style>
+
+    <Style x:Key="secondBoxViewStyle" TargetType="BoxView">
+        <Setter Property="BackgroundColor" Value="{StaticResource secondBoxViewBackgroundColor}"/>
+    </Style>
+
+    <Style x:Key="thirdBoxViewStyle" TargetType="BoxView">
+        <Setter Property="BackgroundColor" Value="{StaticResource thirdBoxViewBackgroundColor}"/>
+    </Style>
+
+    <Style x:Key="fourthBoxViewStyle" TargetType="BoxView">
+        <Setter Property="BackgroundColor" Value="{StaticResource fourthBoxViewBackgroundColor}"/>
+    </Style>
+
+
+    <!--Slider Styles-->
+    <Style x:Key="silder" TargetType="Slider">
+        <Setter Property="MaximumTrackColor" Value="{StaticResource sliderMaximumTrackColor}"/>
+        <Setter Property="MinimumTrackColor" Value="{StaticResource sliderMinimumTrackColor}"/>
+        <Setter Property="ThumbColor" Value="{StaticResource sliderThumbColor}"/>
+    </Style>
+
+    <Style x:Key="secondSilder" TargetType="Slider">
+        <Setter Property="MaximumTrackColor" Value="{StaticResource secondSliderMaximumTrackColor}"/>
+        <Setter Property="MinimumTrackColor" Value="{StaticResource secondSliderMinimumTrackColor}"/>
+        <Setter Property="ThumbColor" Value="{StaticResource secondSliderThumbColor}"/>
+    </Style>
+
+    <!--ImageButton Styles-->
+    <Style x:Key="ImageButton" TargetType="ImageButton">
+        <Setter Property="BackgroundColor" Value="{StaticResource ImageButtonBackgroundColor}"/>
+    </Style>
+
+
+
+</ResourceDictionary>

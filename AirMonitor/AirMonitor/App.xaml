@@ -2,10 +2,44 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"           
              mc:Ignorable="d"
              x:Class="AirMonitor.App">
     <Application.Resources>
+        <ResourceDictionary>
+          <!--Colors-->
+            <Color x:Key="frameBackgroundColor">#33f069</Color>
+            <!--LabelColors-->
+            <Color x:Key="secondLabelTextColor">Black</Color>
+            <Color x:Key="thirdLabelTextColor">Black</Color>
+            <Color x:Key="fourthLabelTextColor">Black</Color>
+            <Color x:Key="fifthLabelTextColor">Black</Color>
+            <!--SpanColors-->
+            <Color x:Key="firstSpanTextColor">Black</Color>
+            <Color x:Key="thirdSpanTextColor">DarkSlateGray</Color>
+            <Color x:Key="fourthSpanTextColor">Black</Color>
+            <Color x:Key="fifthSpanTextColor">Black</Color>
+            <Color x:Key="sixthSpanTextColor">Black</Color>
+            <Color x:Key="seventhSpanTextColor">Black</Color>
+            <Color x:Key="eighthSpanTextColor">Black</Color>
+            <Color x:Key="ninthSpanTextColor">Black</Color>
+            <!--BoxViewColors-->
+            <Color x:Key="firstBoxViewBackgroundColor">LightGray</Color>
+            <Color x:Key="secondBoxViewBackgroundColor">LightGray</Color>
+            <Color x:Key="thirdBoxViewBackgroundColor">LightGray</Color>
+            <Color x:Key="fourthBoxViewBackgroundColor">LightGray</Color>
+            <!--SliderColors-->
+            <Color x:Key="sliderMinimumTrackColor">CornflowerBlue</Color>
+            <Color x:Key="sliderMaximumTrackColor">Gray</Color>
+            <Color x:Key="sliderThumbColor">CornflowerBlue</Color>
+            <Color x:Key="secondSliderMinimumTrackColor">CornflowerBlue</Color>
+            <Color x:Key="secondSliderMaximumTrackColor">Gray</Color>
+            <Color x:Key="secondSliderThumbColor">CornflowerBlue</Color>
+            <!--ImageButtonColors-->
+            <Color x:Key="ImageButtonBackgroundColor">Transparent</Color>
+            
+           
 
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
