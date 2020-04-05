@@ -7,7 +7,7 @@
              mc:Ignorable="d"
             >
     <!--Colors-->
-    <Color x:Key="frameBackgroundColor">Yellow</Color>
+    <Color x:Key="frameBackgroundColor">#33f069</Color>
     <!--LabelColors-->
     <Color x:Key="secondLabelTextColor">Black</Color>
     <Color x:Key="thirdLabelTextColor">Black</Color>

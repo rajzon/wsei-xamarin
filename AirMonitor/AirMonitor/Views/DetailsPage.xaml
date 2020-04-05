@@ -13,14 +13,6 @@
                 >
     <ContentPage.Resources>
         <converter:DoubleToStringConverter x:Key="doubleToString"/>
-
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries x:Key="mergedDictionaries">
-
-                <ResourceDictionary Source="../Colors.xaml"/>
-                <ResourceDictionary Source="../Styles.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.BindingContext>
         <viewmodel:DetailsViewModel/>
