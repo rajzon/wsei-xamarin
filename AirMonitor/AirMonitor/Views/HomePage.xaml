@@ -1,12 +1,27 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AirMonitor.Views.HomePage"
-             Title="Home Page">
-    <Button
-        Text="Go to details"
-        HorizontalOptions="Center"
-        VerticalOptions="Center"
-        Command="{Binding GoToDetailsCommand}"
-        />
+             >
+    <ContentPage.Content>
+        <Grid>
+            <ActivityIndicator IsRunning="{Binding IsDataDownloading}"/>
+            <ListView ItemsSource="{Binding ListOfMeasurementObs}" ItemTapped="ListView_ItemTapped">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding address.country}"></Label>
+                                <Label Text="{Binding address.city}"></Label>
+                                <Label Text="{Binding current.indexes[0].name}"></Label>
+                                <Label Text="{Binding current.indexes[0].value}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>

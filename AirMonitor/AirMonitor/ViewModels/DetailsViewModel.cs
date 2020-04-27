@@ -1,104 +1,134 @@
-﻿using System;
+﻿using AirMonitor.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Net.Http;
 using System.Runtime.CompilerServices;
+using System.Text;
+using Xamarin.Essentials;
 
 namespace AirMonitor.ViewModels
 {
-    public class DetailsViewModel : INotifyPropertyChanged
+    class DetailsViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+		private int caqi;
+		public int CAQI
+		{
+			get { return caqi; }
+			set {			
+				SetProperty(ref caqi, value);
+				}
+		}
 
-        public DetailsViewModel()
-        {
-        }
+		private string caqiJudge;
 
-        private int _caqiValue = 57;
-        public int CaqiValue
-        {
-            get => _caqiValue;
-            set => SetProperty(ref _caqiValue, value);
-            /* SetProperty is a helper function to shorten our code. This is equivalent of:
-             * set
-             * {
-             *  if (_caqiValue == value) return; // Don't reassign value and notify view if value didn't change
-             *
-             *  _caqiValue = value;
-             *  RaisePropertyChanged();
-             * }
-             */
-        }
+		public string CAQIJudge
+		{
+			get { return caqiJudge; }
+			set {
+				SetProperty(ref caqiJudge, value);
+				}
+		}
 
-        private string _caqiTitle = "Świetna jakość!";
-        public string CaqiTitle
-        {
-            get => _caqiTitle;
-            set => SetProperty(ref _caqiTitle, value);
-        }
+		private string caqiComment;
 
-        private string _caqiDescription = "Możesz bezpiecznie wyjść z domu bez swojej maski anty-smogowej i nie bać się o swoje zdrowie.";
-        public string CaqiDescription
-        {
-            get => _caqiDescription;
-            set => SetProperty(ref _caqiDescription, value);
-        }
+		public string CAQIComment
+		{
+			get { return caqiComment; }
+			set { 
+				SetProperty(ref caqiComment, value);
+				}
+		}
 
-        private int _pm25Value = 34;
-        public int Pm25Value
-        {
-            get => _pm25Value;
-            set => SetProperty(ref _pm25Value, value);
-        }
+		private int pm2_5;
+		public int PM2_5
+		{
+			get { return pm2_5; }
+			set { 				
+				SetProperty(ref pm2_5, value);
+				}
+		}
 
-        private int _pm25Percent = 137;
-        public int Pm25Percent
-        {
-            get => _pm25Percent;
-            set => SetProperty(ref _pm25Percent, value);
-        }
+		private int pm10;
+		public int PM10
+		{
+			get { return pm10; }
+			set { 
+				SetProperty(ref pm10, value);
+				}
+		}
 
-        private int _pm10Value = 67;
-        public int Pm10Value
-        {
-            get => _pm10Value;
-            set => SetProperty(ref _pm10Value, value);
-        }
+		private double humidity;
 
-        private int _pm10Percent = 135;
-        public int Pm10Percent
-        {
-            get => _pm10Percent;
-            set => SetProperty(ref _pm10Percent, value);
-        }
+		public double Humidity
+		{
+			get { return humidity; }
+			set { 			
+				SetProperty(ref humidity, value);
+				}
+		}
 
-        private double _humidityValue = 0.95;
-        public double HumidityValue
-        {
-            get => _humidityValue;
-            set => SetProperty(ref _humidityValue, value);
-        }
+		private double pressure;
 
-        private int _pressureValue = 1027;
-        public int PressureValue
-        {
-            get => _pressureValue;
-            set => SetProperty(ref _pressureValue, value);
-        }
+		public double Pressure
+		{
+			get { return pressure; }
+			set { 
+				SetProperty(ref pressure, value);
+				}
+		}
 
-        private void RaisePropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+		private int pm2_5Precentage;
 
-        private bool SetProperty<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+		public int PM2_5Precentage
+		{
+			get { return pm2_5Precentage; }
+			set { 				
+				SetProperty(ref pm2_5Precentage, value);
+				}
+		}
 
-            field = value;
+		private int pm10Precentage;
 
-            RaisePropertyChanged(propertyName);
+		public int PM10Precentage
+		{
+			get { return pm10Precentage; }
+			set {				
+				SetProperty(ref pm10Precentage, value);
+				}
+		}
 
-            return true;
-        }
-    }
+		public static double Longitude { get; set; }
+		public static double Latitude { get; set; }
+
+		public MeasurementsInstallationModel SelectedItem { get; set; }
+
+		public DetailsViewModel(MeasurementsInstallationModel selectedItem)
+		{
+			//Domyślne wartości 
+			CAQIJudge = "Brak danych!";
+			CAQIComment = "Brak Komentarza spowodowany Brakiem Danych!";
+			Pressure = 900;
+
+			SelectedItem = selectedItem;		
+			SettingMeasurmentInformations();
+
+		}
+
+
+		private void SettingMeasurmentInformations()
+		{
+			CAQI = (int)Math.Round(SelectedItem.current.indexes[0].value);
+			CAQIJudge = SelectedItem.current.indexes[0].description;
+			CAQIComment = SelectedItem.current.indexes[0].advice;
+			PM2_5 = (int)Math.Round(SelectedItem.current.values[1].value);
+			PM2_5Precentage = (PM2_5 * 100) / (int)Math.Round(SelectedItem.current.standards[0].limit);
+			PM10 = (int)Math.Round(SelectedItem.current.values[2].value);
+			PM10Precentage = (PM10 * 100) / (int)Math.Round(SelectedItem.current.standards[1].limit);
+			Humidity = (int)Math.Round(SelectedItem.current.values[4].value);
+			Pressure = (int)Math.Round(SelectedItem.current.values[3].value);
+		}
+		
+	}
 }
