@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace AirMonitor.Views
@@ -20,8 +18,7 @@ namespace AirMonitor.Views
             InitializeComponent();
             BindingContext = new DetailsViewModel(selectedItem);
         }
-
-       
+     
 
         private void Help_Clicked(object sender, EventArgs e)
         {

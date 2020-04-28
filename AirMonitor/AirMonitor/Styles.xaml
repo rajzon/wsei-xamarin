@@ -3,15 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             
-            
-             
-             >
-    <!--<ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Colors.xaml" x:Name="colorsResources"/>
-    </ResourceDictionary.MergedDictionaries>-->
-   
+             mc:Ignorable="d">
+
     <!--StackLayout Styles-->
     <Style x:Key="stackLayoutStyle" TargetType="StackLayout">
         <Setter Property="Padding" Value="24"/>

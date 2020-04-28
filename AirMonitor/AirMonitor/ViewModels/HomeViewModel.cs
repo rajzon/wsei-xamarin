@@ -2,16 +2,10 @@
 using AirMonitor.Helpers;
 using AirMonitor.Models;
 using AirMonitor.Views;
-using Android.Telecom;
-using Java.Lang;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace AirMonitor.ViewModels
@@ -55,31 +49,29 @@ namespace AirMonitor.ViewModels
             
 
             var listOfInstallationNearest = await InstallationNearestProcessor.GetInstallationsAsync(latitude, longitude, 1);
-            int nearestInstallationId = listOfInstallationNearest[0].id;
+            int nearestInstallationId = listOfInstallationNearest.FirstOrDefault().id;
             int installationId = nearestInstallationId;
     
 
             var measurements = await MeasurementsInstallationProcessor.GetMeasurementsForSpecificInstallationAsync(latitude, longitude, installationId);
-            SetLocationInformationForMeasurements(measurements, listOfInstallationNearest);
+             SetLocationInformationForMeasurements(measurements, listOfInstallationNearest.FirstOrDefault());
             
            
             isDataDownloading = false;
             return isDataDownloading;
         }
 
-        private void SetLocationInformationForMeasurements(MeasurementsInstallationModel measurements , List<InstallationNearestModel> listOfInstallationNearest)
+        private void SetLocationInformationForMeasurements(MeasurementsInstallationModel measurements , InstallationNearestModel specificInstallationNearest)
         {
-            for (int i = 0; i < listOfInstallationNearest.Count; i++)
-            {
-                measurements.address = listOfInstallationNearest[i].address;
-                measurements.airly = listOfInstallationNearest[i].airly;
-                measurements.location = listOfInstallationNearest[i].location;
-                measurements.elevation = listOfInstallationNearest[i].elevation;
-                measurements.sponsor = listOfInstallationNearest[i].sponsor;
-                measurements.id = listOfInstallationNearest[i].id;
+           
+                measurements.address = specificInstallationNearest.address;
+                measurements.airly = specificInstallationNearest.airly;
+                measurements.location = specificInstallationNearest.location;
+                measurements.elevation = specificInstallationNearest.elevation;
+                measurements.sponsor = specificInstallationNearest.sponsor;
+                measurements.id = specificInstallationNearest.id;
 
-            }
-            ListOfMeasurementObs.Add(measurements);
+                ListOfMeasurementObs.Add(measurements);
 
         }
 

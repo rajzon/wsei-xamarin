@@ -1,8 +1,6 @@
 ﻿using AirMonitor.Models;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AirMonitor.API
@@ -14,7 +12,6 @@ namespace AirMonitor.API
 		{
 				string queryToAppend = $"?installationId={installationId}";
 				UriBuilder baseUri = new UriBuilder(APIHelper.ApiClient.BaseAddress);
-				//baseUri.Path = baseUri.Path.Substring(1) + App.APIMeasurementsInstallationEndpoint;
 				baseUri.Path = baseUri.Path.Substring(1) + APIHelper.APIMeasurementsInstallationEndpoint;
 				baseUri.Query = queryToAppend;
 

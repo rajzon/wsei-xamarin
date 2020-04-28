@@ -1,12 +1,5 @@
 ﻿using AirMonitor.Models;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Net.Http;
-using System.Runtime.CompilerServices;
-using System.Text;
-using Xamarin.Essentials;
 
 namespace AirMonitor.ViewModels
 {
@@ -98,9 +91,6 @@ namespace AirMonitor.ViewModels
 				SetProperty(ref pm10Precentage, value);
 				}
 		}
-
-		public static double Longitude { get; set; }
-		public static double Latitude { get; set; }
 
 		public MeasurementsInstallationModel SelectedItem { get; set; }
 
