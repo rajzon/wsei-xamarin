@@ -13,9 +13,9 @@ namespace AirMonitor.ViewModels
     class HomeViewModel : BaseViewModel
     {
         public INavigation HomeNav { get; set; }
-        public ICommand GoToDetailsCommand => new Command<MeasurementsInstallationModel>(ChangePage);      
+        public ICommand GoToDetailsCommand => new Command<MeasurementModel>(ChangePage);      
 
-        public ObservableCollection<MeasurementsInstallationModel> ListOfMeasurementObs { get; set; }   
+        public ObservableCollection<MeasurementModel> ListOfMeasurementObs { get; set; }   
 
         private bool isDataDownloading = true;
         public bool IsDataDownloading
@@ -25,19 +25,22 @@ namespace AirMonitor.ViewModels
         }
 
 
+
         public  HomeViewModel(INavigation homeNav)
         {         
             HomeNav = homeNav;
 
-            ListOfMeasurementObs = new ObservableCollection<MeasurementsInstallationModel>();
-           
-            GetMeasurmentsAsync();
+            ListOfMeasurementObs = new ObservableCollection<MeasurementModel>();
 
+            GetMeasurmentsAsync();
+                   
+           
         }
+  
 
         private async void GetMeasurmentsAsync()
         {
-            var latLngCooridnates = await LocationInformationsRetrieveHelper.GetLocationAsync();
+            var latLngCooridnates =  await LocationInformationsRetrieveHelper.GetLocationAsync();
             var latitude = LocationInformationsRetrieveHelper.GetLatitude(latLngCooridnates);
             var longitude = LocationInformationsRetrieveHelper.GetLongitude(latLngCooridnates);
             IsDataDownloading = await GetMeasurementsForNearestOneInstallationAsync(latitude , longitude);
@@ -49,7 +52,7 @@ namespace AirMonitor.ViewModels
             
 
             var listOfInstallationNearest = await InstallationNearestProcessor.GetInstallationsAsync(latitude, longitude, 1);
-            int nearestInstallationId = listOfInstallationNearest.FirstOrDefault().id;
+            int nearestInstallationId = listOfInstallationNearest.FirstOrDefault().Id;
             int installationId = nearestInstallationId;
     
 
@@ -61,21 +64,21 @@ namespace AirMonitor.ViewModels
             return isDataDownloading;
         }
 
-        private void SetLocationInformationForMeasurements(MeasurementsInstallationModel measurements , InstallationNearestModel specificInstallationNearest)
+        private void SetLocationInformationForMeasurements(MeasurementModel measurements , InstallationModel specificInstallationNearest)
         {
            
-                measurements.address = specificInstallationNearest.address;
-                measurements.airly = specificInstallationNearest.airly;
-                measurements.location = specificInstallationNearest.location;
-                measurements.elevation = specificInstallationNearest.elevation;
-                measurements.sponsor = specificInstallationNearest.sponsor;
-                measurements.id = specificInstallationNearest.id;
+                measurements.Address = specificInstallationNearest.Address;
+                measurements.Airly = specificInstallationNearest.Airly;
+                measurements.Location = specificInstallationNearest.Location;
+                measurements.Elevation = specificInstallationNearest.Elevation;
+                measurements.Sponsor = specificInstallationNearest.Sponsor;
+                measurements.Id = specificInstallationNearest.Id;
 
                 ListOfMeasurementObs.Add(measurements);
 
         }
 
-        async private void ChangePage(MeasurementsInstallationModel obj)
+        async private void ChangePage(MeasurementModel obj)
         {
             await HomeNav.PushAsync(new DetailsPage(obj));
         }

@@ -12,10 +12,10 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding address.country}"></Label>
-                                <Label Text="{Binding address.city}"></Label>
-                                <Label Text="{Binding current.indexes[0].name}"></Label>
-                                <Label Text="{Binding current.indexes[0].value}"></Label>
+                                <Label Text="{Binding Address.Country}"></Label>
+                                <Label Text="{Binding Address.City}"></Label>
+                                <Label Text="{Binding Current.Indexes[0].Name}"></Label>
+                                <Label Text="{Binding Current.Indexes[0].Value}"></Label>
                             </StackLayout>
                         </ViewCell>
 

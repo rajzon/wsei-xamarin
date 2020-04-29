@@ -13,7 +13,7 @@ namespace AirMonitor.Views
     [DesignTimeVisible(false)]
     public partial class DetailsPage : ContentPage
     {
-        public DetailsPage(MeasurementsInstallationModel selectedItem)
+        public DetailsPage(MeasurementModel selectedItem)
         {
             InitializeComponent();
             BindingContext = new DetailsViewModel(selectedItem);

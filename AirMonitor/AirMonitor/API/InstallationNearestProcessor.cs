@@ -17,7 +17,7 @@ namespace AirMonitor.API
 		/// <param name="longitude"></param>
 		/// <param name="maxResults">max amount of installation that method returns</param>
 		/// <returns></returns>
-		public static async Task<List<InstallationNearestModel>> GetInstallationsAsync(double latitude, double longitude, int maxResults)
+		public static async Task<List<InstallationModel>> GetInstallationsAsync(double latitude, double longitude, int maxResults)
 		{
 
 			string queryToAppend = $"?lat={latitude}&lng={longitude}&maxDistanceKM=3000&maxResults={maxResults}";
@@ -31,7 +31,7 @@ namespace AirMonitor.API
 				if (response.IsSuccessStatusCode)
 				{
 
-					List<InstallationNearestModel> installationsNearest = await response.Content.ReadAsAsync<List<InstallationNearestModel>>();
+					List<InstallationModel> installationsNearest = await response.Content.ReadAsAsync<List<InstallationModel>>();
 					return installationsNearest;
 				}
 				else

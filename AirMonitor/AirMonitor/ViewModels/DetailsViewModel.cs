@@ -92,9 +92,9 @@ namespace AirMonitor.ViewModels
 				}
 		}
 
-		public MeasurementsInstallationModel SelectedItem { get; set; }
+		public MeasurementModel SelectedItem { get; set; }
 
-		public DetailsViewModel(MeasurementsInstallationModel selectedItem)
+		public DetailsViewModel(MeasurementModel selectedItem)
 		{
 			//Domyślne wartości 
 			CAQIJudge = "Brak danych!";
@@ -109,15 +109,15 @@ namespace AirMonitor.ViewModels
 
 		private void SettingMeasurmentInformations()
 		{
-			CAQI = (int)Math.Round(SelectedItem.current.indexes[0].value);
-			CAQIJudge = SelectedItem.current.indexes[0].description;
-			CAQIComment = SelectedItem.current.indexes[0].advice;
-			PM2_5 = (int)Math.Round(SelectedItem.current.values[1].value);
-			PM2_5Precentage = (PM2_5 * 100) / (int)Math.Round(SelectedItem.current.standards[0].limit);
-			PM10 = (int)Math.Round(SelectedItem.current.values[2].value);
-			PM10Precentage = (PM10 * 100) / (int)Math.Round(SelectedItem.current.standards[1].limit);
-			Humidity = (int)Math.Round(SelectedItem.current.values[4].value);
-			Pressure = (int)Math.Round(SelectedItem.current.values[3].value);
+			CAQI = (int)Math.Round(SelectedItem.Current.Indexes[0].Value);
+			CAQIJudge = SelectedItem.Current.Indexes[0].Description;
+			CAQIComment = SelectedItem.Current.Indexes[0].Advice;
+			PM2_5 = (int)Math.Round(SelectedItem.Current.Values[1].Value);
+			PM2_5Precentage = (PM2_5 * 100) / (int)Math.Round(SelectedItem.Current.Standards[0].Limit);
+			PM10 = (int)Math.Round(SelectedItem.Current.Values[2].Value);
+			PM10Precentage = (PM10 * 100) / (int)Math.Round(SelectedItem.Current.Standards[1].Limit);
+			Humidity = (int)Math.Round(SelectedItem.Current.Values[4].Value);
+			Pressure = (int)Math.Round(SelectedItem.Current.Values[3].Value);
 		}
 		
 	}
