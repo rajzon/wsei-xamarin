@@ -41,9 +41,13 @@ namespace AirMonitor.ViewModels
         private async void GetMeasurmentsAsync()
         {
             var latLngCooridnates =  await LocationInformationsRetrieveHelper.GetLocationAsync();
-            var latitude = LocationInformationsRetrieveHelper.GetLatitude(latLngCooridnates);
-            var longitude = LocationInformationsRetrieveHelper.GetLongitude(latLngCooridnates);
-            IsDataDownloading = await GetMeasurementsForNearestOneInstallationAsync(latitude , longitude);
+
+           await Task.Run(async () =>
+            {
+                var latitude = LocationInformationsRetrieveHelper.GetLatitude(latLngCooridnates);
+                var longitude = LocationInformationsRetrieveHelper.GetLongitude(latLngCooridnates);
+                IsDataDownloading = await GetMeasurementsForNearestOneInstallationAsync(latitude, longitude);
+            });
         }
 
         private async Task<bool> GetMeasurementsForNearestOneInstallationAsync(double latitude , double longitude)
