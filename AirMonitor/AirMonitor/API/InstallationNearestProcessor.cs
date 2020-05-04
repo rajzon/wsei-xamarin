@@ -17,10 +17,10 @@ namespace AirMonitor.API
 		/// <param name="longitude"></param>
 		/// <param name="maxResults">max amount of installation that method returns</param>
 		/// <returns></returns>
-		public static async Task<List<InstallationModel>> GetInstallationsAsync(double latitude, double longitude, int maxResults)
+		public static async Task<List<InstallationModel>> GetInstallationsAsync(double latitude, double longitude, int maxResults , int maxDistanceKM)
 		{
 
-			string queryToAppend = $"?lat={latitude}&lng={longitude}&maxDistanceKM=3000&maxResults={maxResults}";
+			string queryToAppend = $"?lat={latitude}&lng={longitude}&maxDistanceKM={maxDistanceKM}&maxResults={maxResults}";
 			UriBuilder baseUri = new UriBuilder(APIHelper.ApiClient.BaseAddress);
 			baseUri.Path = baseUri.Path.Substring(1) + APIHelper.APIInstallationNearestEndpoint;
 			baseUri.Query = queryToAppend;

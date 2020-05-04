@@ -97,8 +97,8 @@ namespace AirMonitor.ViewModels
 		public DetailsViewModel(MeasurementModel selectedItem)
 		{
 			//Domyślne wartości 
-			CAQIJudge = "Brak danych!";
-			CAQIComment = "Brak Komentarza spowodowany Brakiem Danych!";
+			CAQIJudge = "Lack of Data!";
+			CAQIComment = "No Comment Caused by a Lack of Data!";
 			Pressure = 900;
 
 			SelectedItem = selectedItem;		
@@ -109,15 +109,23 @@ namespace AirMonitor.ViewModels
 
 		private void SettingMeasurmentInformations()
 		{
-			CAQI = (int)Math.Round(SelectedItem.Current.Indexes[0].Value);
-			CAQIJudge = SelectedItem.Current.Indexes[0].Description;
-			CAQIComment = SelectedItem.Current.Indexes[0].Advice;
-			PM2_5 = (int)Math.Round(SelectedItem.Current.Values[1].Value);
-			PM2_5Precentage = (PM2_5 * 100) / (int)Math.Round(SelectedItem.Current.Standards[0].Limit);
-			PM10 = (int)Math.Round(SelectedItem.Current.Values[2].Value);
-			PM10Precentage = (PM10 * 100) / (int)Math.Round(SelectedItem.Current.Standards[1].Limit);
-			Humidity = (int)Math.Round(SelectedItem.Current.Values[4].Value);
-			Pressure = (int)Math.Round(SelectedItem.Current.Values[3].Value);
+			if (SelectedItem.Current.Values.Count < 6)
+			{
+				//Zwroc informacje o tym dlaczego nie otrzymano pomiarów z konkretnej instalacji
+				CAQIJudge = SelectedItem.Current.Indexes[0].Description;
+			}
+			else
+			{
+				CAQI = (int)Math.Round((double)SelectedItem.Current.Indexes[0].Value);
+				CAQIJudge = SelectedItem.Current.Indexes[0].Description;
+				CAQIComment = SelectedItem.Current.Indexes[0].Advice;
+				PM2_5 = (int)Math.Round(SelectedItem.Current.Values[1].Value);
+				PM2_5Precentage = (PM2_5 * 100) / (int)Math.Round(SelectedItem.Current.Standards[0].Limit);
+				PM10 = (int)Math.Round(SelectedItem.Current.Values[2].Value);
+				PM10Precentage = (PM10 * 100) / (int)Math.Round(SelectedItem.Current.Standards[1].Limit);
+				Humidity = (int)Math.Round(SelectedItem.Current.Values[4].Value);
+				Pressure = (int)Math.Round(SelectedItem.Current.Values[3].Value);
+			}
 		}
 		
 	}

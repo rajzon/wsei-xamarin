@@ -12,8 +12,8 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Address.Country}"></Label>
-                                <Label Text="{Binding Address.City}"></Label>
+                                <Label Text="{Binding Installation.Address.Country}"></Label>
+                                <Label Text="{Binding Installation.Address.City}"></Label>
                                 <Label Text="{Binding Current.Indexes[0].Name}"></Label>
                                 <Label Text="{Binding Current.Indexes[0].Value}"></Label>
                             </StackLayout>

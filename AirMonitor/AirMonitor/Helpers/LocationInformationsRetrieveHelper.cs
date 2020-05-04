@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace AirMonitor.Helpers
 {
@@ -11,10 +9,18 @@ namespace AirMonitor.Helpers
 
         public async static Task<double[]> GetLocationAsync()
         {
-            var location = await Geolocation.GetLocationAsync();
-            double[] locationLatLng = {location.Latitude , location.Longitude};
+            try
+            {
+                var location = await Geolocation.GetLocationAsync();
+                double[] locationLatLng = { location.Latitude, location.Longitude };
 
-            return locationLatLng;
+                return locationLatLng;
+            }
+            catch(PermissionException)
+            {
+                await Application.Current.MainPage.DisplayAlert($"{nameof(PermissionException)}", "Permission to get location information was denied , causing inability to get measurements", "Ok");
+                return null;
+            }
         }
 
         public  static double GetLatitude(double[] latLngLocation)

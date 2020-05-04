@@ -18,7 +18,7 @@ namespace AirMonitor.Models
         
         public int Id { get; set; }
         public string Name { get; set; }
-        public double Value { get; set; }
+        public double? Value { get; set; }
         public string Level { get; set; }
         public string Description { get; set; }
         public string Advice { get; set; }
@@ -65,9 +65,10 @@ namespace AirMonitor.Models
         public List<AirQualityStandard> Standards { get; set; }
     }
 
-    public class MeasurementModel  : InstallationModel
+    public class MeasurementModel
     {
         public Current Current { get; set; }
+        public InstallationModel Installation { get; set; }
         public List<History> History { get; set; }
         public List<Forecast> Forecast { get; set; }
 
