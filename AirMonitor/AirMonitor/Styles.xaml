@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+
+    <!--StackLayout Styles-->
+    <Style x:Key="stackLayoutStyle" TargetType="StackLayout">
+        <Setter Property="Padding" Value="24"/>
+        <Setter Property="Spacing" Value="12"/>
+    </Style>
+
+    <!--Frame Styles-->
+    <Style x:Key="frameStyle" TargetType="Frame">
+        <Setter Property="CornerRadius" Value="50"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HeightRequest" Value="100"/>
+        <Setter Property="WidthRequest" Value="100"/>
+        <Setter Property="HasShadow" Value="False"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource frameBackgroundColor}"/>
+        <Setter Property="BorderColor" Value="Gray"/>
+    </Style>
+
+
+    <!--Label Styles-->
+    <Style x:Key="firstLabelStyle" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="secondLabelStyle" TargetType="Label">
+        <Setter Property="Text" Value="Świetna jakość!"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="TextColor" Value="{StaticResource secondLabelTextColor}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="thirdLabelStyle" TargetType="Label">
+        <Setter Property="Text" Value="Możesz bezpiecznie wyjść z domu bez swojej maski anty-smogowej i nie bać się o swoje zdrowie."/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="TextColor" Value="{StaticResource thirdLabelTextColor}"/>
+    </Style>
+
+    <Style x:Key="fourthLabelStyle" TargetType="Label">
+        <Setter Property="Text" Value="95%"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="TextColor" Value="{StaticResource fourthLabelTextColor}"/>
+    </Style>
+
+    <Style x:Key="fifthLabelStyle" TargetType="Label">
+        <Setter Property="Text" Value="1026 hPa"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="TextColor" Value="{StaticResource fifthLabelTextColor}"/>
+    </Style>
+
+
+
+    <!--Span Styles-->
+    <Style x:Key="firstSpanStyle" TargetType="Span">
+        <Setter Property="Text" Value="56"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="TextColor" Value="{StaticResource fifthSpanTextColor}"/>
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="thirdSpanStyle" TargetType="Span">
+        <Setter Property="Text" Value="CAQI"/>
+        <Setter Property="TextColor" Value="{StaticResource thirdSpanTextColor}"/>
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="fourthSpanStyle" TargetType="Span">
+        <Setter Property="Text" Value="34"/>
+        <Setter Property="TextColor" Value="{StaticResource fourthSpanTextColor}"/>
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="fifthSpanStyle" TargetType="Span">
+        <Setter Property="Text" Value=" mg/m3 "/>
+        <Setter Property="TextColor" Value="{StaticResource fifthSpanTextColor}"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style x:Key="sixthSpanStyle" TargetType="Span">
+        <Setter Property="Text" Value="(137%)"/>
+        <Setter Property="TextColor" Value="{StaticResource sixthSpanTextColor}"/>
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="seventhSpanStyle" TargetType="Span">
+        <Setter Property="Text" Value="67"/>
+        <Setter Property="TextColor" Value="{StaticResource seventhSpanTextColor}"/>
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="eighthSpanStyle" TargetType="Span">
+        <Setter Property="Text" Value=" mg/m3 "/>
+        <Setter Property="TextColor" Value="{StaticResource eighthSpanTextColor}"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style x:Key="ninthSpanStyle" TargetType="Span">
+        <Setter Property="Text" Value="(135%)"/>
+        <Setter Property="TextColor" Value="{StaticResource ninthSpanTextColor}"/>
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+
+
+    <!--BoxView Styles-->
+    <Style x:Key="firstBoxViewStyle" TargetType="BoxView">
+        <Setter Property="HeightRequest" Value="1"/>
+        <Setter Property="HorizontalOptions" Value="Fill"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource firstBoxViewBackgroundColor}"/>
+    </Style>
+
+    <Style x:Key="secondBoxViewStyle" TargetType="BoxView">
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="VerticalOptions" Value="Fill"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="WidthRequest" Value="1"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource secondBoxViewBackgroundColor}"/>
+    </Style>
+
+    <Style x:Key="thirdBoxViewStyle" TargetType="BoxView">
+        <Setter Property="HorizontalOptions" Value="Fill"/>
+        <Setter Property="HeightRequest" Value="1"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource thirdBoxViewBackgroundColor}"/>
+    </Style>
+
+    <Style x:Key="fourthBoxViewStyle" TargetType="BoxView">
+        <Setter Property="HorizontalOptions" Value="Fill"/>
+        <Setter Property="HeightRequest" Value="1"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource fourthBoxViewBackgroundColor}"/>
+    </Style>
+
+
+
+    <!--Slider Styles-->
+    <Style x:Key="silder" TargetType="Slider">
+        <Setter Property="Value" Value="0.95"/>
+        <Setter Property="MaximumTrackColor" Value="{StaticResource sliderMaximumTrackColor}"/>
+        <Setter Property="MinimumTrackColor" Value="{StaticResource sliderMinimumTrackColor}"/>
+        <Setter Property="ThumbColor" Value="{StaticResource sliderThumbColor}"/>
+    </Style>
+
+    <Style x:Key="secondSilder" TargetType="Slider">
+        <Setter Property="MaximumTrackColor" Value="{StaticResource secondSliderMaximumTrackColor}"/>
+        <Setter Property="MinimumTrackColor" Value="{StaticResource secondSliderMinimumTrackColor}"/>
+        <Setter Property="ThumbColor" Value="{StaticResource secondSliderThumbColor}"/>
+    </Style>
+
+
+    <!--ImageButton Styles-->
+    <Style x:Key="ImageButton" TargetType="ImageButton">
+        <Setter Property="Padding" Value="12,24"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+        <Setter Property="WidthRequest" Value="48"/>
+        <Setter Property="HeightRequest" Value="72"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource ImageButtonBackgroundColor}"/>
+        <Setter Property="Source" Value="baseline_help_outline_black_24.png"/>
+    </Style>
+</ResourceDictionary>

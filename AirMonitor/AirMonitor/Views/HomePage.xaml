@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirMonitor.Views.HomePage"
+             >
+    <ContentPage.Content>
+        <Grid>
+            <ActivityIndicator IsRunning="{Binding IsDataDownloading}"/>
+            <ListView ItemsSource="{Binding ListOfMeasurementObs}" ItemTapped="ListView_ItemTapped"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding RefreshMeasurementsCommand}"
+                      IsRefreshing="{Binding IsRefreshing}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Installation.Address.Country}"></Label>
+                                <Label Text="{Binding Installation.Address.City}"></Label>
+                                <Label Text="{Binding Current.Indexes[0].Name}"></Label>
+                                <Label Text="{Binding Current.Indexes[0].Value}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
