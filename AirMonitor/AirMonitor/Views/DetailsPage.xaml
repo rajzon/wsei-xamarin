@@ -113,6 +113,8 @@
                                         Converter={StaticResource doubleToString}}"/>
                             <Slider
                                 x:Name="humiditySlider"
+                                Maximum="100"
+                                Minimum="0"
                                 Style="{StaticResource silder}"
                                 Value="{Binding Humidity}"/>
                         </StackLayout>

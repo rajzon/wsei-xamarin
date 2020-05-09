@@ -114,7 +114,8 @@ namespace AirMonitor.ViewModels
 			//Domyślne wartości 
 			CAQIJudge = "Brak danych!";
 			CAQIComment = "Brak Komentarza spowodowany Brakiem Danych!";
-			Pressure = 900;			
+			Pressure = 900;
+
 			
 		}
 
